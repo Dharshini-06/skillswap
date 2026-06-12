@@ -1,0 +1,283 @@
+.profile-layout {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.profile-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.profile-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.detail-item label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.detail-item p {
+    font-size: 1rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.bio-text {
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+.resume-status {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.status-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.not-provided {
+    color: var(--text-secondary);
+    font-style: italic;
+    text-align: center;
+}
+
+/* inputs used in edit mode - keep them visually consistent with existing design */
+.profile-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--text-primary);
+    font-size: 1rem;
+    backdrop-filter: blur(6px);
+}
+
+.profile-textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--text-primary);
+    font-size: 1rem;
+    resize: vertical;
+    backdrop-filter: blur(6px);
+}
+
+.profile-input::placeholder,
+.profile-textarea::placeholder {
+    color: var(--text-secondary);
+}
+
+/* Ensure outline buttons (Cancel etc.) remain readable in dark mode on this page only */
+.main-dashboard.dark-theme .btn.btn-outline {
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+    background: transparent !important;
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.profile-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.link-text {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+    word-break: break-all;
+}
+
+.link-text:hover {
+    filter: brightness(1.2);
+    text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+    .profile-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Enhancements */
+.completion-card {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+    border: 1px dashed var(--accent-color);
+}
+
+.completion-bar-container {
+    height: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    margin: 1.5rem 0;
+    overflow: hidden;
+}
+
+.completion-bar {
+    height: 100%;
+    background: var(--accent-color);
+    transition: width 0.5s ease-out;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.checklist-item.done {
+    color: var(--text-primary);
+}
+
+.checklist-icon {
+    font-size: 1.2rem;
+}
+
+.rating-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    background: rgba(234, 179, 8, 0.1);
+    color: #eab308;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.mentor-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    background: rgba(124, 58, 237, 0.1);
+    color: var(--accent-color);
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-left: 0.75rem;
+}
+
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.activity-item {
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.activity-icon {
+    font-size: 1.5rem;
+}
+
+.activity-content p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.activity-content span {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.skills-summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.summary-col h4 {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.empty-add-btn {
+    width: 100%;
+    padding: 1.5rem;
+    border: 1px dashed var(--border-color);
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.empty-add-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    background: rgba(124, 58, 237, 0.05);
+}
+
+.empty-add-btn span:first-child {
+    font-size: 1.5rem;
+}

@@ -1,0 +1,81 @@
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    padding: 3rem 0;
+    /* More breathing room */
+    position: relative;
+    /* Changed from absolute to flow naturally */
+    background: rgba(2, 6, 23, 0.8);
+    /* Semi-transparent background */
+    z-index: 10;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-wrapper {
+    display: flex;
+    width: 100%;
+}
+
+.marquee-track {
+    display: flex;
+    gap: 1.5rem;
+    animation: scrollMarquee 40s linear infinite;
+    width: max-content;
+}
+
+.marquee-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    white-space: nowrap;
+    transition: transform 0.3s ease;
+}
+
+.glass-pill {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.glass-pill:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+.icon {
+    font-size: 1.1rem;
+}
+
+@keyframes scrollMarquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .marquee-container {
+        padding: 1.5rem 0;
+        bottom: -60px;
+        /* Push slightly below if needed, or adjust layout */
+        position: relative;
+        /* On mobile, let it flow naturally */
+        margin-top: 2rem;
+    }
+
+    .marquee-track {
+        animation-duration: 30s;
+    }
+}

@@ -1,0 +1,150 @@
+.session-card-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #0f172a;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.session-header {
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 15px;
+}
+
+.session-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    color: white;
+}
+
+.session-header p {
+    font-size: 13px;
+    opacity: 0.7;
+    margin: 2px 0;
+    color: var(--text-secondary);
+}
+
+.message-box {
+    margin-bottom: 20px;
+}
+
+.message-textarea {
+    width: 100%;
+    min-height: 100px;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 12px;
+    color: white;
+    resize: vertical;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.message-textarea:focus {
+    border-color: var(--accent-color);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group-invite {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group-invite label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.form-group-invite input,
+.form-group-invite select {
+    height: 45px;
+    border-radius: 10px;
+    background: #1e293b;
+    border: 1px solid #334155;
+    padding: 0 12px;
+    color: white;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group-invite input:focus,
+.form-group-invite select:focus {
+    border-color: var(--accent-color);
+}
+
+.form-group-invite input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: #0f172a;
+}
+
+.button-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 25px;
+    gap: 15px;
+}
+
+.start-session-btn {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.start-session-btn:hover {
+    background: #7c3aed;
+    transform: translateY(-1px);
+}
+
+.invite-status {
+    color: #10b981;
+    font-size: 0.9rem;
+}
+
+/* Empty State */
+.empty-chat-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    color: var(--text-secondary);
+}
+
+.empty-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

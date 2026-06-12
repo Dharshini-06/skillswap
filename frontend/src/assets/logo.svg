@@ -1,0 +1,16 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="logoGradient" x1="20" y1="30" x2="230" y2="230" gradientUnits="userSpaceOnUse">
+<stop offset="0%" stop-color="#7b2ff7"/>
+<stop offset="100%" stop-color="#f107a3"/>
+</linearGradient>
+<filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+<feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+<feComposite in="SourceGraphic" in2="blur" operator="over" />
+</filter>
+</defs>
+
+<rect width="256" height="256" rx="60" fill="url(#logoGradient)" opacity="0.1" />
+<path d="M128 20C68.35 20 20 68.35 20 128C20 187.65 68.35 236 128 236C187.65 236 236 187.65 236 128C236 68.35 187.65 20 128 20ZM128 216C79.4 216 40 176.6 40 128C40 79.4 79.4 40 128 40C176.6 40 216 79.4 216 128C216 176.6 176.6 216 128 216Z" fill="url(#logoGradient)" opacity="0.3"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M158.4 88.6C163.8 83.2 163.8 74.4 158.4 69C155.8 66.4 152.2 65 148.6 65H88C75.3 65 65 75.3 65 88V126C65 131.5 69.5 136 75 136C80.5 136 85 131.5 85 126V88C85 86.3 86.3 85 88 85H148.6L134.3 99.3C130.4 103.2 130.4 109.5 134.3 113.4C138.2 117.3 144.5 117.3 148.4 113.4L172.5 89.3L158.4 88.6ZM97.6 167.4C92.2 172.8 92.2 181.6 97.6 187C100.2 189.6 103.8 191 107.4 191H168C180.7 191 191 180.7 191 168V130C191 124.5 186.5 120 181 120C175.5 120 171 124.5 171 130V168C171 169.7 169.7 171 168 171H107.4L121.7 156.7C125.6 152.8 125.6 146.5 121.7 142.6C117.8 138.7 111.5 138.7 107.6 142.6L83.5 166.7L97.6 167.4Z" fill="url(#logoGradient)" filter="url(#glow)"/>
+</svg>
