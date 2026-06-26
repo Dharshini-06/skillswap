@@ -10,7 +10,13 @@ router.post("/register", async (req, res) => {
     const { name, email, password } = req.body;
     console.log("New User Registration Details:", { name, email, password });
 
-    const existingUser = await User.findOne({ email });
+    if (!name || !email || !password) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
+
+    const normalizedEmail = email.toLowerCase().trim();
+
+    const existingUser = await User.findOne({ email: normalizedEmail });
     if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
     }
@@ -19,7 +25,7 @@ router.post("/register", async (req, res) => {
 
     const user = new User({
       name,
-      email,
+      email: normalizedEmail,
       password: hashedPassword
     });
 
@@ -37,24 +43,44 @@ router.post("/register", async (req, res) => {
 // LOGIN ROUTE
 router.post("/login", async (req, res) => {
   try {
+    console.log("Request Body:", req.body);
     const { email, password } = req.body;
 
-    const user = await User.findOne({ email });
+    if (!email || !password) {
+      console.log("Exact 400 Reason: Email or password was not provided in request body.");
+      return res.status(400).json({ message: "Email and password are required" });
+    }
+
+    const normalizedEmail = email.toLowerCase().trim();
+    console.log("Normalized Email:", normalizedEmail);
+
+    const user = await User.findOne({ email: normalizedEmail });
+    console.log("User Found:", !!user);
+    if (user) {
+      console.log("Found User Email:", user.email);
+    }
+
     if (!user) {
+      console.log("Exact 400 Reason: User not found in MongoDB.");
       return res.status(400).json({ message: "User not found" });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
+    console.log("Password Match:", isMatch);
+
     if (!isMatch) {
+      console.log("Exact 400 Reason: Password mismatch (bcrypt.compare failed).");
       return res.status(400).json({ message: "Invalid password" });
     }
 
     res.status(200).json({
       message: "Login successful",
       userId: user._id,
+      name: user.name,
       onboardingCompleted: user.onboardingCompleted
     });
   } catch (err) {
+    console.error("Caught error stack:", err.stack);
     res.status(500).json({ error: err.message });
   }
 });

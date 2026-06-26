@@ -55,7 +55,8 @@ export default function Login() {
       }
     } catch (error) {
       console.error("Error connecting to server:", error);
-      alert("Server error. Please try again later.");
+      const errorMsg = error.response?.data?.message || "Server error. Please try again later.";
+      alert(errorMsg);
     }
   };
 
