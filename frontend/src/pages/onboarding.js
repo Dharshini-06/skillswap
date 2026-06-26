@@ -82,7 +82,7 @@ export default function Onboarding() {
         console.log("Submitting Onboarding Payload:", payload);
 
         try {
-            const response = await fetch("https://://skillswap-ekvn.onrender.com/api/auth/complete-onboarding", {
+            const response = await fetch("https://skillswap-ekvn.onrender.com/api/auth/complete-onboarding", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

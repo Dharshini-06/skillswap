@@ -25,17 +25,18 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://://skillswap-ekvn.onrender.com/api/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await axios.post(
+  "https://skillswap-ekvn.onrender.com/api/auth/login",
+  {
+    email,
+    password,
+  }
+);
+const data = response.data;
 
       const data = await response.json();
 
-      if (response.ok) {
+      if (response.status === 200) {
         console.log("Login successful:", data);
         localStorage.setItem("userId", data.userId);
         localStorage.setItem("user", JSON.stringify({ _id: data.userId, name: data.name || "User" }));

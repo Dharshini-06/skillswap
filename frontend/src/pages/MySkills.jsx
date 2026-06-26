@@ -49,7 +49,7 @@ const MySkills = () => {
         if (!userId) return;
         setLoading(true);
         try {
-            const response = await fetch(`https://://skillswap-ekvn.onrender.com/api/users/${userId}/skills`);
+            const response = await fetch(`https://skillswap-ekvn.onrender.com/api/users/${userId}/skills`);
             const data = await response.json();
             setUserData(data);
 
@@ -66,7 +66,7 @@ const MySkills = () => {
     const fetchDashboardData = useCallback(async () => {
         if (!userId) return;
         try {
-            const res = await fetch(`https://://skillswap-ekvn.onrender.com/api/dashboard`, {
+            const res = await fetch(`https://skillswap-ekvn.onrender.com/api/dashboard`, {
                 headers: { 'x-user-id': userId }
             });
             const data = await res.json();
@@ -80,7 +80,7 @@ const MySkills = () => {
     const fetchMatches = useCallback(async () => {
         if (!userId) return;
         try {
-            const res = await fetch(`https://://skillswap-ekvn.onrender.com/api/users/matches`, {
+            const res = await fetch(`https://skillswap-ekvn.onrender.com/api/users/matches`, {
                 headers: { 'x-user-id': userId }
             });
             const data = await res.json();
@@ -98,7 +98,7 @@ const MySkills = () => {
 
     const handleSavePreferences = async (newData = userData, isSilent = false) => {
         try {
-            const response = await fetch(`https://://skillswap-ekvn.onrender.com/api/users/${userId}/skills`, {
+            const response = await fetch(`https://skillswap-ekvn.onrender.com/api/users/${userId}/skills`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(newData)
@@ -140,7 +140,7 @@ const MySkills = () => {
     const handleSavePrefsOnly = async () => {
         try {
             setLoading(true);
-            const response = await fetch(`https://://skillswap-ekvn.onrender.com/api/users/${userId}/preferences`, {
+            const response = await fetch(`https://skillswap-ekvn.onrender.com/api/users/${userId}/preferences`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -188,7 +188,7 @@ const MySkills = () => {
         };
 
         try {
-            const response = await fetch(`https://://skillswap-ekvn.onrender.com/api/users/${userId}/skills`, {
+            const response = await fetch(`https://skillswap-ekvn.onrender.com/api/users/${userId}/skills`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(updatedData)
