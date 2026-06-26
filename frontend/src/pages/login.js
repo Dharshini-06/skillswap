@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import axios from "axios";
 import "./landing.css";
 import logo from "../assets/logo.svg";
 import Footer from "../components/Footer";
@@ -26,15 +27,13 @@ export default function Login() {
 
     try {
       const response = await axios.post(
-  "https://skillswap-ekvn.onrender.com/api/auth/login",
-  {
-    email,
-    password,
-  }
-);
-const data = response.data;
-
-      const data = await response.json();
+        "https://skillswap-ekvn.onrender.com/api/auth/login",
+        {
+          email,
+          password,
+        }
+      );
+      const data = response.data;
 
       if (response.status === 200) {
         console.log("Login successful:", data);
