@@ -2,7 +2,7 @@ server start node server.js or npm start
 stop panna ctrl+c
 mongodb+srv://dharshini010206_db_user:SkillSwap@123@skillswapcluster.ca953tr.mongodb.net/?appName=SkillSwapCluster
 SkillSwap123 mango db password
-http://localhost:5000/
+http://https://skillswap-ekvn.onrender.com/
 mango compass : mongodb://localhost:27017
 const appID = 1866114087;
     const serverSecret = "6fbd5f2f9627dafac44a82f388a02fde // for real time video call

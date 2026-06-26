@@ -15,7 +15,7 @@ const UserSelectionModal = ({ isOpen, onClose }) => {
         const fetchChats = async () => {
             try {
                 // Fetch swaps that are accepted or ongoing to show as "chats"
-                const res = await axios.get('http://localhost:5000/api/user', {
+                const res = await axios.get('http://https://skillswap-ekvn.onrender.com/api/user', {
                     headers: { 'x-user-id': userId }
                 });
                 setChats(res.data);

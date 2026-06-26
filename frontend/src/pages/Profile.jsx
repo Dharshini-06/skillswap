@@ -53,7 +53,7 @@ const Profile = () => {
                 return;
             }
             try {
-                const res = await fetch(`http://localhost:5000/api/profile/${userId}`);
+                const res = await fetch(`http://https://skillswap-ekvn.onrender.com/api/profile/${userId}`);
                 if (res.ok) {
                     const data = await res.json();
                     setProfile(prev => ({ ...prev, ...data }));
@@ -76,7 +76,7 @@ const Profile = () => {
         }
         async function fetchActivities() {
             try {
-                const res = await fetch(`http://localhost:5000/api/user`, {
+                const res = await fetch(`http://https://skillswap-ekvn.onrender.com/api/user`, {
                     headers: { 'x-user-id': userId }
                 });
                 if (res.ok) {
@@ -160,13 +160,13 @@ const Profile = () => {
                                         if (resumeFile) form.append('resume', resumeFile);
                                         if (profileImageFile) form.append('profileImage', profileImageFile);
 
-                                        const res = await fetch(`http://localhost:5000/api/profile/${userId}`, {
+                                        const res = await fetch(`http://https://skillswap-ekvn.onrender.com/api/profile/${userId}`, {
                                             method: 'PUT',
                                             body: form
                                         });
                                         if (res.ok) {
                                             // refresh
-                                            const refreshed = await (await fetch(`http://localhost:5000/api/profile/${userId}`)).json();
+                                            const refreshed = await (await fetch(`http://https://skillswap-ekvn.onrender.com/api/profile/${userId}`)).json();
                                             setProfile(prev => ({ ...prev, ...refreshed }));
                                             // update localStorage
                                             localStorage.setItem('userName', refreshed.name || '');
@@ -216,7 +216,7 @@ const Profile = () => {
                             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem', padding: '1rem' }}>
                                 <div className="profile-image-preview">
                                     {(profile.profileType === 'image' && (profileImageFile || profile.profileImage)) ? (
-                                        <img src={profileImageFile ? URL.createObjectURL(profileImageFile) : `http://localhost:5000${profile.profileImage}`} alt="Profile" style={{ width: '120px', height: '120px', borderRadius: '50%', objectFit: 'cover', background: 'var(--bg-secondary)', border: '2px solid var(--accent-color)' }} />
+                                        <img src={profileImageFile ? URL.createObjectURL(profileImageFile) : `http://https://skillswap-ekvn.onrender.com${profile.profileImage}`} alt="Profile" style={{ width: '120px', height: '120px', borderRadius: '50%', objectFit: 'cover', background: 'var(--bg-secondary)', border: '2px solid var(--accent-color)' }} />
                                     ) : (
                                         <img src={profile.avatarUrl || `https://api.dicebear.com/7.x/adventurer/svg?seed=${profile.name || 'user'}`} alt="Avatar" style={{ width: '120px', height: '120px', borderRadius: '50%', background: 'var(--bg-secondary)', border: '2px solid var(--accent-color)' }} />
                                     )}
@@ -460,7 +460,7 @@ const Profile = () => {
                                     <div className="resume-status">
                                         <FileText size={20} />
                                         <p>Resume uploaded</p>
-                                        <a className="btn btn-outline" style={{ width: '100%', display: 'inline-block', marginTop: '1rem' }} href={`http://localhost:5000${profile.resume}`} target="_blank" rel="noreferrer">View / Download</a>
+                                        <a className="btn btn-outline" style={{ width: '100%', display: 'inline-block', marginTop: '1rem' }} href={`http://https://skillswap-ekvn.onrender.com${profile.resume}`} target="_blank" rel="noreferrer">View / Download</a>
                                     </div>
                                 ) : (
                                     <button className="empty-add-btn" onClick={() => setIsEditing(true)}>

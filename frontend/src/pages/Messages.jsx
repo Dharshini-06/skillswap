@@ -36,7 +36,7 @@ const Messages = () => {
             if (!urlUserId) return;
             try {
                 // Fetch the specific user details
-                const res = await axios.get(`http://localhost:5000/api/profile/${urlUserId}`);
+                const res = await axios.get(`http://https://skillswap-ekvn.onrender.com/api/profile/${urlUserId}`);
                 setSelectedUser(res.data);
 
                 // Try to find the swap associated with this user if initialSwapId is not provided
@@ -44,7 +44,7 @@ const Messages = () => {
                 let swapObj = null;
 
                 if (!swapId) {
-                    const chatRes = await axios.get('http://localhost:5000/api/user', {
+                    const chatRes = await axios.get('http://https://skillswap-ekvn.onrender.com/api/user', {
                         headers: { 'x-user-id': userId }
                     });
                     const swap = chatRes.data.find(c => (c.sender._id === urlUserId || c.receiver._id === urlUserId));
@@ -52,7 +52,7 @@ const Messages = () => {
                 }
 
                 if (swapId) {
-                    const swapRes = await axios.get(`http://localhost:5000/api/swap/${swapId}`, {
+                    const swapRes = await axios.get(`http://https://skillswap-ekvn.onrender.com/api/swap/${swapId}`, {
                         headers: { 'x-user-id': userId }
                     });
                     swapObj = swapRes.data.swap;
@@ -87,7 +87,7 @@ const Messages = () => {
 
     const handleSendInvite = async () => {
         try {
-            const res = await axios.post("http://localhost:5000/api/session/send-invite", {
+            const res = await axios.post("http://https://skillswap-ekvn.onrender.com/api/session/send-invite", {
                 receiverId: selectedUser?._id || urlUserId,
                 message: messageInput,
                 skill: teachSkill,

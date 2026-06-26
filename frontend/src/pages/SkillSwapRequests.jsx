@@ -34,7 +34,7 @@ const SkillSwapRequests = () => {
         if (!userId) return;
         setIsLoading(true);
         try {
-            const response = await fetch(`http://localhost:5000/api/dashboard`, {
+            const response = await fetch(`http://https://skillswap-ekvn.onrender.com/api/dashboard`, {
                 headers: { 'x-user-id': userId }
             });
             const data = await response.json();
@@ -53,7 +53,7 @@ const SkillSwapRequests = () => {
 
     const handleAcceptReject = async (requestId, action) => {
         try {
-            const res = await fetch(`http://localhost:5000/api/swap/${action}/${requestId}`, {
+            const res = await fetch(`http://https://skillswap-ekvn.onrender.com/api/swap/${action}/${requestId}`, {
                 method: 'POST'
             });
             if (res.ok) {
@@ -87,7 +87,7 @@ const SkillSwapRequests = () => {
 
     const handleRatingSubmit = async (ratingNum) => {
         try {
-            const res = await fetch(`http://localhost:5000/api/users/rate`, {
+            const res = await fetch(`http://https://skillswap-ekvn.onrender.com/api/users/rate`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
