@@ -25,7 +25,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://https://skillswap-ekvn.onrender.com/api/auth/login', {
+      const response = await fetch('https://://skillswap-ekvn.onrender.com/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

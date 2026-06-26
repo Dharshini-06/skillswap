@@ -48,7 +48,7 @@ const ChangePasswordModal = ({ isOpen, onClose, onSuccess, onError }) => {
         const userId = localStorage.getItem("userId");
 
         try {
-            const res = await fetch('http://https://skillswap-ekvn.onrender.com/api/auth/change-password', {
+            const res = await fetch('https://://skillswap-ekvn.onrender.com/api/auth/change-password', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

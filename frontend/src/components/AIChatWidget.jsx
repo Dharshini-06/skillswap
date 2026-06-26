@@ -29,7 +29,7 @@ const AIChatWidget = () => {
         try {
             const userId = localStorage.getItem("userId") || "guest_123";
 
-            const res = await fetch('http://https://skillswap-ekvn.onrender.com/api/ai/chat', {
+            const res = await fetch('https://://skillswap-ekvn.onrender.com/api/ai/chat', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: currentMessage, userId })

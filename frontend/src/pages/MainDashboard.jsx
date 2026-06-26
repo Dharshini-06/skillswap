@@ -31,7 +31,7 @@ const MainDashboard = ({ showMessagesModal = false }) => {
     const fetchNotifications = () => {
         const userId = localStorage.getItem("userId");
         if (!userId) return;
-        fetch("http://https://skillswap-ekvn.onrender.com/api/notifications", { headers: { "x-user-id": userId } })
+        fetch("https://://skillswap-ekvn.onrender.com/api/notifications", { headers: { "x-user-id": userId } })
             .then(res => res.json())
             .then(data => setNotifications(data))
             .catch(err => console.error("Error fetching notifications", err));
@@ -47,7 +47,7 @@ const MainDashboard = ({ showMessagesModal = false }) => {
 
     const handleNotificationClick = async (n) => {
         try {
-            await fetch(`http://https://skillswap-ekvn.onrender.com/api/notifications/read/${n._id}`, { method: 'PUT', headers: { 'x-user-id': localStorage.getItem("userId") } });
+            await fetch(`https://://skillswap-ekvn.onrender.com/api/notifications/read/${n._id}`, { method: 'PUT', headers: { 'x-user-id': localStorage.getItem("userId") } });
             fetchNotifications();
         } catch (err) { }
 
@@ -110,7 +110,7 @@ const MainDashboard = ({ showMessagesModal = false }) => {
             };
 
             // Fetch User Profile
-            fetch(`http://https://skillswap-ekvn.onrender.com/api/profile/${userId}`)
+            fetch(`https://://skillswap-ekvn.onrender.com/api/profile/${userId}`)
                 .then(res => {
                     if (res.status === 404) return logoutUser();
                     return res.json();
@@ -142,7 +142,7 @@ const MainDashboard = ({ showMessagesModal = false }) => {
                 .catch(err => console.error("Failed to fetch user data", err));
 
             // Fetch Dashboard Data (Requests)
-            fetch(`http://https://skillswap-ekvn.onrender.com/api/dashboard`, {
+            fetch(`https://://skillswap-ekvn.onrender.com/api/dashboard`, {
                 headers: { 'x-user-id': userId }
             })
                 .then(res => {
@@ -162,7 +162,7 @@ const MainDashboard = ({ showMessagesModal = false }) => {
                 });
 
             // Fetch Mutual Skill Matches
-            fetch(`http://https://skillswap-ekvn.onrender.com/api/users/matches`, {
+            fetch(`https://://skillswap-ekvn.onrender.com/api/users/matches`, {
                 headers: { 'x-user-id': userId }
             })
                 .then(res => {
@@ -179,14 +179,14 @@ const MainDashboard = ({ showMessagesModal = false }) => {
                 });
 
             // Fetch Feedback for dashboard
-            fetch(`http://https://skillswap-ekvn.onrender.com/api/feedback/${userId}`)
+            fetch(`https://://skillswap-ekvn.onrender.com/api/feedback/${userId}`)
                 .then(res => res.json())
                 .then(data => {
                     if (Array.isArray(data)) setFeedbacks(data.slice(0, 5));
                 })
                 .catch(err => console.error('Failed to fetch feedback', err));
 
-            fetch(`http://https://skillswap-ekvn.onrender.com/api/feedback/avg/${userId}`)
+            fetch(`https://://skillswap-ekvn.onrender.com/api/feedback/avg/${userId}`)
                 .then(res => res.json())
                 .then(data => setAvgFeedback({ avgRating: data.avgRating || 0, count: data.count || 0 }))
                 .catch(err => console.error('Failed to fetch average rating', err));
@@ -197,13 +197,13 @@ const MainDashboard = ({ showMessagesModal = false }) => {
         const userId = localStorage.getItem("userId");
         if (userId) {
             // Re-fetch everything
-            fetch(`http://https://skillswap-ekvn.onrender.com/api/dashboard`, { headers: { 'x-user-id': userId } })
+            fetch(`https://://skillswap-ekvn.onrender.com/api/dashboard`, { headers: { 'x-user-id': userId } })
                 .then(res => res.json())
                 .then(data => {
                     setIncomingRequests(Array.isArray(data.pendingRequests) ? data.pendingRequests : []);
                     setSentRequests(Array.isArray(data.sentRequests) ? data.sentRequests : []);
                 });
-            fetch(`http://https://skillswap-ekvn.onrender.com/api/users/matches`, { headers: { 'x-user-id': userId } })
+            fetch(`https://://skillswap-ekvn.onrender.com/api/users/matches`, { headers: { 'x-user-id': userId } })
                 .then(res => res.json())
                 .then(data => setSuggestedMatches(Array.isArray(data) ? data : []));
         }
@@ -212,7 +212,7 @@ const MainDashboard = ({ showMessagesModal = false }) => {
     const handleRequestSwap = async (receiverId) => {
         const userId = localStorage.getItem("userId");
         try {
-            const res = await fetch(`http://https://skillswap-ekvn.onrender.com/api/swap/request`, {
+            const res = await fetch(`https://://skillswap-ekvn.onrender.com/api/swap/request`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -244,7 +244,7 @@ const MainDashboard = ({ showMessagesModal = false }) => {
 
     const handleAcceptReject = async (requestId, action) => {
         try {
-            const res = await fetch(`http://https://skillswap-ekvn.onrender.com/api/swap/${action}/${requestId}`, {
+            const res = await fetch(`https://://skillswap-ekvn.onrender.com/api/swap/${action}/${requestId}`, {
                 method: 'POST'
             });
             if (res.ok) {
@@ -343,7 +343,7 @@ const MainDashboard = ({ showMessagesModal = false }) => {
 
     useEffect(() => {
         // Fetch Trending Skills
-        fetch(`http://https://skillswap-ekvn.onrender.com/api/users/trending-skills`)
+        fetch(`https://://skillswap-ekvn.onrender.com/api/users/trending-skills`)
             .then(res => res.json())
             .then(data => {
                 if (data.trending && data.trending.length > 0) {
@@ -417,7 +417,7 @@ const MainDashboard = ({ showMessagesModal = false }) => {
                                     {userData.profileType === 'avatar' ? (
                                         <img src={userData.avatarUrl || `https://api.dicebear.com/7.x/adventurer/svg?seed=${userData.name}`} alt="Avatar" style={{ width: '100%', height: '100%' }} />
                                     ) : (
-                                        <img src={userData.profileImage ? `http://https://skillswap-ekvn.onrender.com${userData.profileImage}` : ''} alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                        <img src={userData.profileImage ? `https://://skillswap-ekvn.onrender.com${userData.profileImage}` : ''} alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                     )}
                                 </div>
                             </div>

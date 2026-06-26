@@ -33,7 +33,7 @@ const SwapProgressTracker = () => {
     const fetchSwaps = useCallback(async () => {
         try {
             setLoading(true);
-            const response = await axios.get('http://https://skillswap-ekvn.onrender.com/api/user', {
+            const response = await axios.get('https://://skillswap-ekvn.onrender.com/api/user', {
                 headers: { 'x-user-id': userId }
             });
             setSwaps(response.data);
@@ -67,7 +67,7 @@ const SwapProgressTracker = () => {
             if (action === 'complete') endpoint = `/api/swap/complete/${swapId}`;
             if (action === 'reset') endpoint = `/api/swap/reset-session/${swapId}`;
 
-            const res = await axios.put(`http://https://skillswap-ekvn.onrender.com${endpoint}`, {}, {
+            const res = await axios.put(`https://://skillswap-ekvn.onrender.com${endpoint}`, {}, {
 
                 headers: { 'x-user-id': userId }
             });
@@ -88,7 +88,7 @@ const SwapProgressTracker = () => {
 
     const handleSelectSessionType = async (type) => {
         try {
-            await axios.post(`http://https://skillswap-ekvn.onrender.com/api/start-session/${activeSwapId}`, {
+            await axios.post(`https://://skillswap-ekvn.onrender.com/api/start-session/${activeSwapId}`, {
 
                 sessionType: type
             }, {
@@ -117,7 +117,7 @@ const SwapProgressTracker = () => {
             const toUserId = selectedSwap.sender && selectedSwap.sender._id === userId
                 ? selectedSwap.receiver?._id
                 : selectedSwap.sender?._id;
-            await axios.post(`http://https://skillswap-ekvn.onrender.com/api/feedback`, {
+            await axios.post(`https://://skillswap-ekvn.onrender.com/api/feedback`, {
                 sessionId: selectedSwap._id,
                 toUserId,
                 fromUserId: userId,

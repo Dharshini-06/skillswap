@@ -30,7 +30,7 @@ export default function Register() {
         e.preventDefault();
 
         try {
-            const response = await fetch('http://https://skillswap-ekvn.onrender.com/api/auth/register', {
+            const response = await fetch('https://://skillswap-ekvn.onrender.com/api/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
